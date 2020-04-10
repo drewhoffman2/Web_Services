@@ -188,19 +188,16 @@
 					<Hint2 - To add the cards to the HTML> - Make sure to use string concatenation to add the html code for the daily weather cards.  This should
 					be set to the innerHTML for the 5_day_forecast.
 				*/
-        var count = 0
+        var count = 1
         var date, day_of_wk, high, low, sunrise, sunset, day
         var week_names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-        while (count < 5) {
-          count++
-
+        while (count < 6) {
           day = getKey(count)
           console.log(day)
 
           date = new Date(day.date) 
           day_of_wk = date.getDay()
           day_of_wk = week_names[day_of_wk]
-
           high = getFarenheitTemp(day.maxtemp)
           low = getFarenheitTemp(day.mintemp)
           sunrise = day.astro.sunrise
@@ -214,6 +211,8 @@
           card += 'Sunset: ' + sunset + '</p>'
           card += '</div> </div> </div>'
           five_day_fc.innerHTML += card
+
+          count++
         }
 			})
 		})
